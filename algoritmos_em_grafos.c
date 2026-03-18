@@ -11,9 +11,28 @@ typedef struct {
     int matrizAdjacente[MAX_VERTICES][MAX_VERTICES];
 }Grafos;
 
+
 //função para comparar elementos do vetor grau para ordenaçao da funcao qsort
 int funcaoComparadora( const void *a, const void *b){
     return (*(int *) a - *(int*) b);
+}
+
+int lerGrafo (Grafos *grafo, int numero) {
+    int i, j;
+    for (i = 0; i < MAX_VERTICES; i++) {
+        grafo->grau[i] = 0;
+         for (j = 0; j < MAX_VERTICE; i++) {
+             grafo->matrizAdjacente[i][j] = 0; 
+         }
+    }  
+    grafo->quantidadeAresta = 0;
+
+    printf ("Entre com número de Vertices do grafo %d: , numero)
+        scanf("%d", grafo->quantidadeVertice);
+    if (grafo->quantidadeVertice < 1 || grafo->quantidadeVertice > MAX_VERTICE){
+        printf("ERRO! A entrada deve ser (1 a %d)., MAX_VERTICE"); 
+    }
+    
 }
 
 int verificacoesPrevias (const Grafos *grafos1, const  Grafos *grafo2){
@@ -28,17 +47,20 @@ int verificacoesPrevias (const Grafos *grafos1, const  Grafos *grafo2){
     }
 
     int auxGuardarGraus1[MAX_VERTICES], auxGurdarGraus2[MAX_VERTICES];
-    int 1;
+    int i;
     for (i = 0; i <grafos1->quantidadeVertice; i++){
         auxGuardarGraus1[i] = grafos1->grau[i];
         auxGurdarGraus2[i] = grafo2->grau[i];
     }
 
-    qsort (auxGuardarGraus1,grafos1->quantidadeVertice sizeof(int), int funcaoComparadora);
-    qsort (auxGuardarGraus1,grafo2->quantidadeVertice sizeof(int), int funcaoComparadora);
-    for (i = 0; grafos1-.quantidadeVertice; i++)
-        if (auxGuardarGraus1[i] != auxGurdarGraus2[1]) 
+    qsort (auxGuardarGraus1,grafos1->quantidadeVertice, sizeof(int), funcaoComparadora);
+    qsort (auxGuardarGraus2,grafo2->quantidadeVertice, sizeof(int), funcaoComparadora);
+    for (i = 0; i < grafos1->quantidadeVertice; i++){
+        if (auxGuardarGraus1[i] != auxGurdarGraus2[i]){
         return 0;
+        }
+    }
+    return 1;
 }
 
 
