@@ -27,10 +27,25 @@ int lerGrafo (Grafos *grafo, int numero) {
     }  
     grafo->quantidadeAresta = 0;
 
-    printf ("Entre com número de Vertices do grafo %d: , numero)
+    printf ("Entre com número de Vertices do grafo %d: , MAX_VERTICE);
         scanf("%d", grafo->quantidadeVertice);
     if (grafo->quantidadeVertice < 1 || grafo->quantidadeVertice > MAX_VERTICE){
         printf("ERRO! A entrada deve ser (1 a %d)., MAX_VERTICE"); 
+        return;
+    }
+    printf("----
+    int u, v, entradaUsuario
+    for( u = 0; u < grafo->quantidaeVertice; U++) {
+        for(v = u + 1; v < grafo->quantidadeVertice; V++) {
+            print("grafo %d [V%d] [V%d]",numero,  u, v);
+            scanf("%d", &entradaUsuario);
+            if (entradaUsuario == 1) {
+                grafo->matrizadjacente[u][v] = grafo->matrizadjacente[v][u] + 1;
+                grafo->grau[u]++;
+                grafo->grau[v]++;
+                grafo->quantidadeAresta++;
+            }
+         }     
     }
     
 }
