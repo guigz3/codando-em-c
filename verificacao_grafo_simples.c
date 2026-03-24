@@ -105,7 +105,7 @@ void verificarRoda(const Grafos *grafos) {
     int i, contador;
     contador = 0;
 
-    if (grafos->quantidadeVertice < 4) {
+    if (grafos->quantidadeVertice == 4) {
         printf("Esse grafo simples nao e roda!\n");
         return;
     }
